@@ -575,6 +575,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0d5df975ef90345b0ce1628f46b0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <AnimationData>k__BackingField:
+    idleParameterName: Idle
+    runParameterName: '@Run'
+    battleParameterName: Battle
+    attackParameterName: '@Attack'
 --- !u!195 &566802303
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -696,7 +701,7 @@ Transform:
   m_GameObject: {fileID: 797529648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.57, y: 1, z: -4.56}
+  m_LocalPosition: {x: 1.9, y: 1, z: -5.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
