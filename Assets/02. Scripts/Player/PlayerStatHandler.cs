@@ -16,8 +16,8 @@ public class PlayerStatHandler : MonoBehaviour
     public float speed;
 
     [Header("Property")]
-    public int gold;
-    public int jewel;
+    public int gold = 0;
+    public int jewel = 0;
 
     [Header("AttackInfo")]
     public float attackDamage;
