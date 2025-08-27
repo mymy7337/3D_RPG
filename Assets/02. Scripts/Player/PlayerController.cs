@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     private PlayerStateMachine stateMachine;
     private ChasingTarget chasingTarget;
 
-    private float attackDelay = 1.5f;
     private bool isAttacking;
 
     private float distance;
@@ -19,12 +18,13 @@ public class PlayerController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         chasingTarget = GetComponent<ChasingTarget>();
-        stateMachine = PlayerManager.Instance.Player.stateMachine;
     }
     void Start()
     {
+        stateMachine = PlayerManager.Instance.Player.stateMachine;
+
         path = new NavMeshPath();
-        
+        agent.speed = PlayerManager.Instance.Player.statHandler.speed;
     }
 
     void Update()
@@ -44,11 +44,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ChangeSpeed(float speed)
+    {
+        PlayerManager.Instance.Player.statHandler.speed = speed;
+    }
+
     private IEnumerator Attack()
     {
         isAttacking = true;
         stateMachine.ChangeState(stateMachine.AttackState);
-        yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(PlayerManager.Instance.Player.statHandler.attackDelay);
         isAttacking = false;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private PlayerController controller;
-    private PlayerStatHandler statHandler;
+    public PlayerStatHandler statHandler;
 
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
