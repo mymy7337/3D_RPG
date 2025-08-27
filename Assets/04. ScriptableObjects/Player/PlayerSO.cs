@@ -19,7 +19,7 @@ public class PlayerSO : ScriptableObject
     [field: SerializeField] public int Jewel { get; private set; }
 
     [field: Header("AttackInfo")]
-
+    [field: SerializeField] public float AttackDamage { get; private set; }
     [field: SerializeField] public float AttackDelay { get; private set; }
 
 }
