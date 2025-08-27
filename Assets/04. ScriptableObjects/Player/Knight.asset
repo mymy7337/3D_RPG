@@ -20,4 +20,5 @@ MonoBehaviour:
   <Speed>k__BackingField: 5
   <Gold>k__BackingField: 0
   <Jewel>k__BackingField: 0
+  <AttackDamage>k__BackingField: 10
   <AttackDelay>k__BackingField: 1.5

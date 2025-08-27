@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    PlayerController controller;
+    private PlayerController controller;
+    private PlayerStatHandler statHandler;
 
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
@@ -18,11 +19,8 @@ public class Player : MonoBehaviour
         PlayerManager.Instance.Player = this;
         AnimationData.Initialize();
         controller = GetComponent<PlayerController>();
+        statHandler = GetComponent<PlayerStatHandler>();
         Animator = GetComponentInChildren<Animator>();
         stateMachine = new PlayerStateMachine(this);
-    }
-
-    private void Start()
-    {
     }
 }
