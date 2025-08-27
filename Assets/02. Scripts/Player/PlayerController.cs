@@ -8,16 +8,17 @@ public class PlayerController : MonoBehaviour
     private NavMeshAgent agent;
     private NavMeshPath path;
     private PlayerStateMachine stateMachine;
+    private ChasingTarget chasingTarget;
+
     private float attackDelay = 1.5f;
     private bool isAttacking;
-
-    [SerializeField] private GameObject Target;
 
     private float distance;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        chasingTarget = GetComponent<ChasingTarget>();
         stateMachine = PlayerManager.Instance.Player.stateMachine;
     }
     void Start()
@@ -28,12 +29,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        distance = Vector3.Distance(Target.transform.position, transform.position);
+        distance = Vector3.Distance(chasingTarget.curTarget.position, transform.position);
 
-        if (agent.CalculatePath(Target.transform.position, path) && distance >= 1f)
+        if (agent.CalculatePath(chasingTarget.curTarget.position, path) && distance >= 1f)
         {
             stateMachine.ChangeState(stateMachine.RunState);
-            agent.SetDestination(Target.transform.position);
+            agent.SetDestination(chasingTarget.curTarget.position);
         }
 
         if(agent.remainingDistance < 0.1f && !isAttacking)
