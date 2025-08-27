@@ -5,14 +5,16 @@ using UnityEngine;
 public class PlayerStatHandler : MonoBehaviour
 {
     public PlayerSO data;
+    public UIConditions uiConditions;
 
     [Header("Stats")]
-    public int level;
+    public int level = 1;
     public float maxHp;
     public float maxMp;
     public float hp;
     public float mp;
-    public float exp;
+    public float maxExp;
+    public float exp = 0;
     public float speed;
 
     [Header("Property")]
@@ -25,15 +27,20 @@ public class PlayerStatHandler : MonoBehaviour
 
     private void Awake()
     {
-        data = GetComponent<PlayerSO>();
         maxHp = data.MaxHP;
         maxMp = data.MaxMP;
-        hp = maxHp;
-        mp = maxMp;
+        hp = 50;
+        mp = 50;
         speed = data.Speed;
-        exp = level * level * 50;
+        maxExp = level * level * 50;
         attackDamage = data.AttackDamage;
         attackDelay = data.AttackDelay;
+        uiConditions.HpChange(hp, maxHp);
+        uiConditions.MpChange(mp, maxMp);
+        uiConditions.ExpChange(exp, maxExp);
+        uiConditions.LevelChange(level);
+        uiConditions.GoldChange(gold);
+        uiConditions.JewelChange(jewel);
     }
 
     public void TakeDamage(float amount)
