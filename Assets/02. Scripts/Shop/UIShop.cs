@@ -56,7 +56,13 @@ public class UIShop : MonoBehaviour
         {
             itemCountText.enabled = true;
             itemCount.enabled = true;
-            //itemCount.text = 
+            foreach(var item in inventory.itemSlots)
+            {
+                if(item.itemData.id == selectedItemData.id)
+                {
+                    itemCount.text = item.itemData.count.ToString("D2");
+                }
+            }
         }
         else
         {
