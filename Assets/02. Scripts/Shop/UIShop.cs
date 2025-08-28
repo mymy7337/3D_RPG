@@ -12,6 +12,8 @@ public class UIShop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemDes;
     [SerializeField] private TextMeshProUGUI itemCountText;
     [SerializeField] private TextMeshProUGUI itemCount;
+    [SerializeField] private TextMeshProUGUI priceText;
+    [SerializeField] private TextMeshProUGUI price;
 
     [SerializeField] private ShopSlot[] itemSlots;
 
@@ -19,9 +21,18 @@ public class UIShop : MonoBehaviour
 
     [SerializeField] private ItemDataSO[] itemDatas;
 
-    private void Awake()
+    private ItemDataSO selectedItemData;
+
+    private void OnEnable()
     {
         SetSlot();
+    }
+
+    private void OnDisable()
+    {
+        selectedItemData = null;
+        Reset();
+        
     }
 
     public void SetSlot()
@@ -35,14 +46,22 @@ public class UIShop : MonoBehaviour
 
     public void SelectItem(int index)
     {
-        var selectedItemData = itemSlots[index].data;
+        selectedItemData = itemSlots[index].data;
         itemName.text = selectedItemData.itemName;
         itemDes.text = selectedItemData.description;
+        priceText.enabled = true;
+        price.enabled = true;
+        price.text = $"{selectedItemData.price} G";
         if(selectedItemData.type == ItemType.Expend)
         {
             itemCountText.enabled = true;
             itemCount.enabled = true;
             //itemCount.text = 
+        }
+        else
+        {
+            itemCountText.enabled = false;
+            itemCount.enabled = false;
         }
     }
 
@@ -54,5 +73,17 @@ public class UIShop : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void Reset()
+    {
+        itemName.text = null;
+        itemDes.text = null;
+        itemCount.text = null;
+        price.text = null;
+        itemCountText.enabled = false;
+        itemCount.enabled = false;
+        priceText.enabled = false;
+        price.enabled = false;       
     }
 }
