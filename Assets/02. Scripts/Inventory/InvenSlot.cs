@@ -9,6 +9,7 @@ public class InvenSlot : ItemSlot
     public override void Set(ItemDataSO data)
     {
         itemData = new ItemInstance(data);
+        icon.sprite = data.icon;
     }
 
     public override void Click()
