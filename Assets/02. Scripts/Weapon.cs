@@ -23,9 +23,9 @@ public class Weapon : MonoBehaviour
 
         alreadyCollider.Add(other);
 
-        if (other.TryGetComponent(out EnemyStatHandler statHandler))
+        if (other.TryGetComponent(out IDamagable damagable))
         {
-            statHandler.TakeDamage(data.AttackDamage);
+            damagable.TakeDamage(data.AttackDamage);
         }
 
     }

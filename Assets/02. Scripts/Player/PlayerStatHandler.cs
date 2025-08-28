@@ -1,8 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerStatHandler : MonoBehaviour
+public interface IDamagable
+{
+    public void TakeDamage(float amount);
+}
+
+public class PlayerStatHandler : MonoBehaviour, IDamagable
 {
     public PlayerSO data;
     public UIConditions uiConditions;
@@ -29,8 +35,8 @@ public class PlayerStatHandler : MonoBehaviour
     {
         maxHp = data.MaxHP;
         maxMp = data.MaxMP;
-        hp = 50;
-        mp = 50;
+        hp = maxHp;
+        mp = maxMp;
         speed = data.Speed;
         maxExp = level * level * 50;
         attackDamage = data.AttackDamage;

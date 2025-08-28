@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatHandler : MonoBehaviour
+public class EnemyStatHandler : MonoBehaviour, IDamagable
 {
     public EnemySO data;
 
