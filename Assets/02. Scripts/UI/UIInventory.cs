@@ -12,23 +12,31 @@ public class UIInventory : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private TextMeshProUGUI itemDes;
+    [SerializeField] private TextMeshProUGUI itemCountText;
     [SerializeField] private TextMeshProUGUI itemCount;
 
     public InvenSlot[] itemSlots;
 
+    private ItemInstance selectedItemData;
+
     public void SelectItem(int index)
     {
-        useBtn.SetActive(false);
-        equipBtn.SetActive(false);
-        unEquipBtn.SetActive(false);
-
-        var selectedItemData = itemSlots[index].itemData;
+        Reset();
+        
+        selectedItemData = itemSlots[index].itemData;
         itemName.text = selectedItemData.itemName;
         itemDes.text = selectedItemData.description;
 
-        if (selectedItemData.type == ItemType.Weapon || selectedItemData.type == ItemType.Armor)
+        if (selectedItemData.type == ItemType.Expend)
         {
-            if(selectedItemData.Equip)
+            itemCountText.enabled = true;
+            itemCount.enabled = true;
+            itemCount.text = selectedItemData.count.ToString("D2");
+            useBtn.SetActive(true);
+        }
+        else if(selectedItemData.type == ItemType.Weapon ||  selectedItemData.type == ItemType.Armor)
+        {
+            if (selectedItemData.Equip)
             {
                 equipBtn.SetActive(true);
             }
@@ -37,9 +45,22 @@ public class UIInventory : MonoBehaviour
                 unEquipBtn.SetActive(true);
             }
         }
-        else
+        else if(selectedItemData.id == 0)
         {
-            useBtn.SetActive(true);
+            itemName.enabled = false;
+            itemDes.enabled = false;
+            return;
         }
+    }
+
+    private void Reset()
+    {
+        useBtn.SetActive(false);
+        equipBtn.SetActive(false);
+        unEquipBtn.SetActive(false);
+        itemCountText.enabled = false;
+        itemCount.enabled = false;
+        itemName.enabled = true;
+        itemDes.enabled = true;
     }
 }

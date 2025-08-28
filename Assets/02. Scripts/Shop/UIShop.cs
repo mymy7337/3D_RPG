@@ -46,6 +46,7 @@ public class UIShop : MonoBehaviour
 
     public void SelectItem(int index)
     {
+        Reset();
         selectedItemData = itemSlots[index].data;
         itemName.text = selectedItemData.itemName;
         itemDes.text = selectedItemData.description;
@@ -93,6 +94,8 @@ public class UIShop : MonoBehaviour
                 if (FindEmptySlot(i))
                 {
                     inventory.itemSlots[i].Set(selectedItemData);
+                    inventory.itemSlots[i].itemData.count++;
+                    itemCount.text = inventory.itemSlots[i].itemData.count.ToString("D2");
                     return;
                 }
             }
@@ -134,6 +137,7 @@ public class UIShop : MonoBehaviour
         itemCountText.enabled = false;
         itemCount.enabled = false;
         priceText.enabled = false;
-        price.enabled = false;       
+        price.enabled = false;
+        itemCount.text = "00";
     }
 }
