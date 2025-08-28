@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88165b05422ccf344a08fc231694f3ca, type: 3}
-  m_Name: GreenPotion(S)
+  m_Name: Wooden Sword
   m_EditorClassIdentifier: 
-  itemName: "\uCD08\uB85D \uD3EC\uC158(\uC18C)"
-  description: "30\uCD08\uAC04 \uACF5\uACA9\uB825\uC774 10 \uC99D\uAC00\uD569\uB2C8\uB2E4"
-  value: 10
-  price: 200
-  icon: {fileID: 21300000, guid: d5a5a908cea74bf419ec1771ca2cf481, type: 3}
-  type: 2
+  itemName: "\uBAA9\uAC80"
+  description: "\uB098\uBB34\uB85C \uB9CC\uB4E0 \uAC80\uC785\uB2C8\uB2E4"
+  value: 20
+  price: 500
+  icon: {fileID: 21300000, guid: 5e97b0e3c88800e47afb2e9762b8616e, type: 3}
+  type: 0

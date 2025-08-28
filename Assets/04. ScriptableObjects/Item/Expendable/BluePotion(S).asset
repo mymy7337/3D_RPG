@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ba460da789189449a1279ffc48fcaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 88165b05422ccf344a08fc231694f3ca, type: 3}
   m_Name: BluePotion(S)
   m_EditorClassIdentifier: 
-  itemName: "\uD30C\uB780 \uD3EC\uC158"
+  itemName: "\uD30C\uB780 \uD3EC\uC158(\uC18C)"
   description: "MP\uB97C 50 \uD68C\uBCF5\uD569\uB2C8\uB2E4"
   value: 50
   price: 100
   icon: {fileID: 21300000, guid: 88d704c97d4a48f43ae8228779a13b0a, type: 3}
+  type: 2
