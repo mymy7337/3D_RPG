@@ -6,6 +6,11 @@ public class InvenSlot : ItemSlot
 {
     public UIInventory inventory;
 
+    public override void Set(ItemInstance item)
+    {
+        itemData = new ItemInstance(item);
+        icon.sprite = item.icon;
+    }
     public override void Set(ItemDataSO data)
     {
         itemData = new ItemInstance(data);

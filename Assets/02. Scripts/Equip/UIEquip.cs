@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class UIEquip : MonoBehaviour
 {
@@ -20,10 +22,10 @@ public class UIEquip : MonoBehaviour
     [SerializeField] private UIInventory inventory;
 
     private ItemInstance selectedItemData;
+    private int selectedSlotIndex;
 
     private void OnEnable()
     {
-        SetSlot();
     }
 
     private void OnDisable()
@@ -33,31 +35,52 @@ public class UIEquip : MonoBehaviour
 
     }
 
-    public void SetSlot()
-    {
-
-    }
-
     public void SelectItem(int index)
     {
-        unEquipBtn.SetActive(true);
-        itemName.enabled = true;
-        itemValueText.enabled = true;
-        itemValue.enabled = true;
-
+        Reset();
         selectedItemData = itemSlots[index].itemData;
-        
-        itemName.text = selectedItemData.itemName;
-        switch(selectedItemData.type)
+
+        if (selectedItemData.id != 0)
         {
-            case ItemType.Weapon:
-                itemValueText.text = "공격력";
-                break;
-            case ItemType.Helmet: case ItemType.Armor: case ItemType.Boots:
-                itemValueText.text = "방어력";
-                break;
+            unEquipBtn.SetActive(true);
+            itemName.enabled = true;
+            itemValueText.enabled = true;
+            itemValue.enabled = true;
+
+            selectedSlotIndex = index;
+
+            itemName.text = selectedItemData.itemName;
+            switch (selectedItemData.type)
+            {
+                case ItemType.Weapon:
+                    itemValueText.text = "공격력";
+                    break;
+                case ItemType.Helmet:
+                case ItemType.Armor:
+                case ItemType.Boots:
+                    itemValueText.text = "방어력";
+                    break;
+            }
+            itemValue.text = selectedItemData.value.ToString();
         }
-        itemValue.text = selectedItemData.value.ToString();
+    }
+
+    public void UnEquip()
+    {
+        for(int i = 0;  i < inventory.itemSlots.Length; i++)
+        {
+            if(FindEmptySlot(i))
+            {
+                inventory.itemSlots[i].Set(selectedItemData);
+                itemSlots[selectedSlotIndex].itemData.id = 0;
+                itemSlots[selectedSlotIndex].itemData.itemName = null;
+                itemSlots[selectedSlotIndex].itemData.description = null;
+                itemSlots[selectedSlotIndex].itemData.icon = null;
+                itemSlots[selectedSlotIndex].icon.sprite = null;
+                Reset();
+                return;
+            }
+        }
     }
 
     public bool FindEmptySlot(int index)

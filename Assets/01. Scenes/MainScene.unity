@@ -3045,16 +3045,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1427516953893569919, guid: d68b0544e715bc64fa9e5557aee1b35c,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1427516953893569919, guid: d68b0544e715bc64fa9e5557aee1b35c,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 2304533718498642836, guid: d68b0544e715bc64fa9e5557aee1b35c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3159,26 +3149,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UIEquip
-      objectReference: {fileID: 0}
-    - target: {fileID: 3538812393652786962, guid: d68b0544e715bc64fa9e5557aee1b35c,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3538812393652786962, guid: d68b0544e715bc64fa9e5557aee1b35c,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6451056409299461107, guid: d68b0544e715bc64fa9e5557aee1b35c,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6451056409299461107, guid: d68b0544e715bc64fa9e5557aee1b35c,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7129423026157958904, guid: d68b0544e715bc64fa9e5557aee1b35c,
         type: 3}
