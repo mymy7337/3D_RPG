@@ -63,6 +63,7 @@ public class UIShop : MonoBehaviour
                 if(item.itemData.id == selectedItemData.id)
                 {
                     itemCount.text = item.itemData.count == 0 ? "00" : item.itemData.count.ToString("D2");
+                    return;
                 }
             }
         }
@@ -92,6 +93,7 @@ public class UIShop : MonoBehaviour
                 if (FindEmptySlot(i))
                 {
                     inventory.itemSlots[i].Set(selectedItemData);
+                    return;
                 }
             }
         }
@@ -102,6 +104,7 @@ public class UIShop : MonoBehaviour
                 if (FindEmptySlot(i))
                 {
                     inventory.itemSlots[i].Set(selectedItemData);
+                    return;
                 }
             }
         }
