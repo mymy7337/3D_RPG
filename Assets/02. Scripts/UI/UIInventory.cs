@@ -38,11 +38,11 @@ public class UIInventory : MonoBehaviour
         {
             if (selectedItemData.Equip)
             {
-                equipBtn.SetActive(true);
+                unEquipBtn.SetActive(true);
             }
             else
             {
-                unEquipBtn.SetActive(true);
+                equipBtn.SetActive(true);
             }
         }
         else if(selectedItemData.id == 0)
