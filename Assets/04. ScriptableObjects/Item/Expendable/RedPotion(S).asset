@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88165b05422ccf344a08fc231694f3ca, type: 3}
   m_Name: RedPotion(S)
   m_EditorClassIdentifier: 
+  id: 100
   itemName: "\uBE68\uAC04 \uD3EC\uC158(\uC18C)"
   description: "HP\uB97C 50 \uD68C\uBCF5\uD569\uB2C8\uB2E4"
   value: 50
