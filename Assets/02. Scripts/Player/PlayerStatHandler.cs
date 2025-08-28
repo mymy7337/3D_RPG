@@ -14,7 +14,7 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
     public UIConditions uiConditions;
 
     [Header("Stats")]
-    public int level = 1;
+    public int level;
     public float maxHp;
     public float maxMp;
     public float hp;
@@ -33,6 +33,7 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
 
     private void Awake()
     {
+        level = 1;
         maxHp = data.MaxHP;
         maxMp = data.MaxMP;
         hp = maxHp;
@@ -52,17 +53,36 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
     public void TakeDamage(float amount)
     {
         hp -= amount;
-        Debug.Log($"플레이어{hp}");
+        uiConditions.HpChange(hp, maxHp);
     }
 
-    public void GetExt(float amount) => exp += amount;
+    public void GetExt(float amount)
+    { 
+        exp += amount;
+        uiConditions.ExpChange(exp, maxExp);
+    }
 
-    public void GetGold(int amount) => gold += amount;
+    public void GetGold(int amount) 
+    { 
+        gold += amount;
+        uiConditions.GoldChange(gold);
+    }
 
-    public void GetJewel(int amount) => jewel += amount;
+    public void GetJewel(int amount) 
+    { 
+        jewel += amount;
+        uiConditions.JewelChange(jewel);
+    }
 
-    public void UseGold(int amount) => gold -= amount;
+    public void UseGold(int amount)
+    {
+        gold -= amount;
+        uiConditions.GoldChange(gold);
+    }
 
-    public void UseJewel(int amount) => jewel -= amount;
-
+    public void UseJewel(int amount) 
+    { 
+        jewel -= amount;
+        uiConditions.JewelChange(jewel);
+    }
 }
