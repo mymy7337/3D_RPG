@@ -14,7 +14,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemDes;
     [SerializeField] private TextMeshProUGUI itemCount;
 
-    [SerializeField] private ItemSlot[] itemSlots;
+    public ItemSlot[] itemSlots;
 
     public void SelectItem(int index)
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemInstance
 {
     [Header("Info")]
+    public int id;
     public string itemName;
     public string description;
     public float value;
@@ -18,6 +19,7 @@ public class ItemInstance
 
     public ItemInstance(ItemDataSO data)
     {
+        id = data.id;
         itemName = data.itemName;
         description = data.description;
         value = data.value;

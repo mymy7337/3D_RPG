@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvenSlot : ItemSlot
+public class ShopSlot : ItemSlot
 {
-    public UIInventory inventory;
+    public UIShop shop;
+    public ItemDataSO data;
 
     public override void Set(ItemDataSO data)
     {
-        itemData = new ItemInstance(data);
-        icon.sprite = itemData.icon;
+        this.data = data;
     }
 
     public override void Click()
     {
-        inventory.SelectItem(slotIndex);
+        shop.SelectItem(slotIndex);
     }
 }
