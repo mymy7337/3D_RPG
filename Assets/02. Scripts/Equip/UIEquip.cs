@@ -18,6 +18,8 @@ public class UIEquip : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemValueText;
     [SerializeField] private TextMeshProUGUI itemValue;
 
+    [SerializeField] private TextMeshProUGUI jewel;
+
     public EquipSlot[] itemSlots;
 
     [SerializeField] private UIInventory inventory;
@@ -27,7 +29,8 @@ public class UIEquip : MonoBehaviour
 
     private void OnEnable()
     {
-        foreach(var slot in itemSlots)
+        jewel.text = PlayerManager.Instance.Player.statHandler.jewel.ToString();
+        foreach (var slot in itemSlots)
         {
             if(slot != null)
             {
@@ -104,13 +107,15 @@ public class UIEquip : MonoBehaviour
 
     public void EnforceBtn()
     {
-        if (PlayerManager.Instance.Player.statHandler.jewel - selectedItemData.enforce > 0)
+        if (PlayerManager.Instance.Player.statHandler.jewel - selectedItemData.enforce > 0 && selectedItemData.enforce < 10)
         {
+            PlayerManager.Instance.Player.statHandler.jewel -= selectedItemData.enforce;
+            jewel.text = PlayerManager.Instance.Player.statHandler.jewel.ToString();
+
             if (Random.Range(0, 100) < 100 - selectedItemData.enforce * 10)
             {
                 selectedItemData.enforce++;
                 selectedItemData.value += selectedItemData.enforce;
-                PlayerManager.Instance.Player.statHandler.jewel -= selectedItemData.enforce;
                 itemSlots[selectedSlotIndex].ChangeEnfoce($"+{selectedItemData.enforce}");
                 itemValue.text = selectedItemData.value.ToString();
             }

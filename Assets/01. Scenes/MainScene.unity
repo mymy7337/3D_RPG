@@ -2383,11 +2383,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4778128226048187227, guid: d68b0544e715bc64fa9e5557aee1b35c,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnforceBtn
-      objectReference: {fileID: 0}
     - target: {fileID: 7129423026157958904, guid: d68b0544e715bc64fa9e5557aee1b35c,
         type: 3}
       propertyPath: inventory
