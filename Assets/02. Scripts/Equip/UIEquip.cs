@@ -32,7 +32,7 @@ public class UIEquip : MonoBehaviour
             if(slot != null)
             {
                 selectedItemData = slot.itemData;
-                if (selectedItemData.enforce != 00)
+                if (selectedItemData.enforce != 0)
                 {
                     slot.enforce.enabled = true;
                     slot.enforce.text = "+" + selectedItemData.enforce.ToString();

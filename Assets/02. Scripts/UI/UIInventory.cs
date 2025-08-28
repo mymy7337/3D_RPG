@@ -20,6 +20,22 @@ public class UIInventory : MonoBehaviour
     private int selectedItemIndex;
 
     [SerializeField] private UIEquip equip;
+    private void OnEnable()
+    {
+        foreach (var slot in itemSlots)
+        {
+            if (slot != null)
+            {
+                selectedItemData = slot.itemData;
+                if (selectedItemData.enforce != 0)
+                {
+                    slot.enforce.enabled = true;
+                    slot.enforce.text = "+" + selectedItemData.enforce.ToString();
+                }
+            }
+        }
+        selectedItemData = null;
+    }
 
     public void SelectItem(int index)
     {

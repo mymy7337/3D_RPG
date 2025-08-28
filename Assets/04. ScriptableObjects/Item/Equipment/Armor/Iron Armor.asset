@@ -16,6 +16,6 @@ MonoBehaviour:
   itemName: "\uCCA0 \uAC11\uC637"
   description: "\uCCA0\uB85C \uB9CC\uB4E0 \uAC11\uC637\uC785\uB2C8\uB2E4"
   value: 15
-  price: 500
+  priceGold: 700
   icon: {fileID: 21300000, guid: cffd58c2cfa51f34889a9d5cb56716ee, type: 3}
-  type: 2
+  type: 0

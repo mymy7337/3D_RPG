@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InvenSlot : ItemSlot
 {
     public UIInventory inventory;
+    public TextMeshProUGUI enforce;
 
     public override void Set(ItemInstance item)
     {
