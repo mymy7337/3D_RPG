@@ -9,6 +9,11 @@ public class ItemSlot : MonoBehaviour
     public Image icon;
     public ItemInstance itemData;
 
+    public virtual void Set(ItemInstance item)
+    {
+
+    }
+
     public virtual void Set(ItemDataSO data)
     {
         

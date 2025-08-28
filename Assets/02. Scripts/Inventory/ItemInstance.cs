@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [Serializable]
 public class ItemInstance
@@ -16,6 +17,17 @@ public class ItemInstance
 
     [Header("Type")]
     public ItemType type;
+
+    public ItemInstance(ItemInstance item)
+    {
+        id = item.id;
+        itemName = item.itemName;
+        description = item.description;
+        value = item.value;
+        price = item.price;
+        icon = item.icon;
+        type = item.type;
+    }
 
     public ItemInstance(ItemDataSO data)
     {
