@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4442638316260407189}
   - component: {fileID: 1944298857104626916}
   - component: {fileID: 6641372143927194056}
-  - component: {fileID: 7932336483944885718}
+  - component: {fileID: -903370379920064783}
   m_Layer: 5
-  m_Name: ItemSlot
+  m_Name: InvenSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7932336483944885718}
-        m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+      - m_Target: {fileID: -903370379920064783}
+        m_TargetAssemblyTypeName: InvenSlot, Assembly-CSharp
         m_MethodName: Click
         m_Mode: 1
         m_Arguments:
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7932336483944885718
+--- !u!114 &-903370379920064783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,12 +143,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1447909240245754346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76e77eb3c41446f41b19b3ab4a82b529, type: 3}
+  m_Script: {fileID: 11500000, guid: bd01bada070da2e4dba15c36145fb999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotIndex: 0
   icon: {fileID: 3815724238640356342}
   itemData:
+    id: 0
     itemName: 
     description: 
     value: 0

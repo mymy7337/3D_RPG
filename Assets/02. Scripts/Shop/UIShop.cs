@@ -58,9 +58,11 @@ public class UIShop : MonoBehaviour
             itemCount.enabled = true;
             foreach(var item in inventory.itemSlots)
             {
+                if (item == null) return;
+
                 if(item.itemData.id == selectedItemData.id)
                 {
-                    itemCount.text = item.itemData.count.ToString("D2");
+                    itemCount.text = item.itemData.count == 0 ? "00" : item.itemData.count.ToString("D2");
                 }
             }
         }
@@ -71,9 +73,48 @@ public class UIShop : MonoBehaviour
         }
     }
 
+    public void Buy()
+    {
+        if (selectedItemData.type == ItemType.Expend)
+        {
+            foreach (var item in inventory.itemSlots)
+            {
+                if(item == null) return;
+                if (item.itemData.id == selectedItemData.id)
+                {
+                    item.itemData.count++;
+                    itemCount.text = item.itemData.count.ToString("D2");
+                    return;
+                }
+            }
+            for (int i = 0; i < inventory.itemSlots.Length; i++)
+            {
+                if (FindEmptySlot(i))
+                {
+                    inventory.itemSlots[i].Set(selectedItemData);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < inventory.itemSlots.Length; i++)
+            {
+                if (FindEmptySlot(i))
+                {
+                    inventory.itemSlots[i].Set(selectedItemData);
+                }
+            }
+        }
+    }
+
+    public void Sell()
+    {
+
+    }
+
     public bool FindEmptySlot(int index)
     {
-        if (inventory.itemSlots[index].itemData == null)
+        if (inventory.itemSlots[index].itemData.id == 0)
         {
             return true;
         }
