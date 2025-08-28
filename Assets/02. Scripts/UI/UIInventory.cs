@@ -68,23 +68,35 @@ public class UIInventory : MonoBehaviour
 
     public void EquipBtn()
     {
-        switch(selectedItemData.type)
+        switch (selectedItemData.type)
         {
             case ItemType.Helmet:
-                equip.itemSlots[0].Set(selectedItemData);
-                ClearSlot(selectedItemIndex);
+                if (equip.itemSlots[0].itemData.id == 0)
+                {
+                    equip.itemSlots[0].Set(selectedItemData);
+                    ClearSlot(selectedItemIndex);
+                }
                 break;
             case ItemType.Armor:
-                equip.itemSlots[1].Set(selectedItemData);
-                ClearSlot(selectedItemIndex);
+                if (equip.itemSlots[1].itemData.id == 0)
+                {
+                    equip.itemSlots[1].Set(selectedItemData);
+                    ClearSlot(selectedItemIndex);
+                }
                 break;
             case ItemType.Boots:
-                equip.itemSlots[2].Set(selectedItemData);
+                if (equip.itemSlots[2].itemData.id == 0)
+                {
+                    equip.itemSlots[2].Set(selectedItemData);
                 ClearSlot(selectedItemIndex);
+                }
                 break;
             case ItemType.Weapon:
-                equip.itemSlots[3].Set(selectedItemData);
-                ClearSlot(selectedItemIndex);
+                if (equip.itemSlots[3].itemData.id == 0)
+                {
+                    equip.itemSlots[3].Set(selectedItemData);
+                    ClearSlot(selectedItemIndex);
+                }
                 break;
         }
     }

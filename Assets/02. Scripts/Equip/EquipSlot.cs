@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EquipSlot : ItemSlot
 {
     [SerializeField] private UIEquip equip;
+    public TextMeshProUGUI enforce;
 
     public override void Set(ItemInstance item)
     {
@@ -15,5 +17,10 @@ public class EquipSlot : ItemSlot
     public override void Click()
     {
         equip.SelectItem(slotIndex);
+    }
+
+    public void ChangeEnfoce(string ef)
+    {
+        enforce.text = ef;
     }
 }

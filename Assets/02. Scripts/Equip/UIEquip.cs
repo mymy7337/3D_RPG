@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class UIEquip : MonoBehaviour
 {
@@ -26,6 +27,19 @@ public class UIEquip : MonoBehaviour
 
     private void OnEnable()
     {
+        foreach(var slot in itemSlots)
+        {
+            if(slot != null)
+            {
+                selectedItemData = slot.itemData;
+                if (selectedItemData.enforce != 00)
+                {
+                    slot.enforce.enabled = true;
+                    slot.enforce.text = "+" + selectedItemData.enforce.ToString();
+                }
+            }
+        }
+        selectedItemData = null;
     }
 
     private void OnDisable()
@@ -37,19 +51,24 @@ public class UIEquip : MonoBehaviour
 
     public void SelectItem(int index)
     {
-        Reset();
         selectedItemData = itemSlots[index].itemData;
+        selectedSlotIndex = index;
+
+        Reset();
 
         if (selectedItemData.id != 0)
         {
             unEquipBtn.SetActive(true);
+            enfornceBtn.SetActive(true);
+            itemSlots[selectedSlotIndex].enforce.enabled = true;
             itemName.enabled = true;
             itemValueText.enabled = true;
             itemValue.enabled = true;
 
-            selectedSlotIndex = index;
+            
 
             itemName.text = selectedItemData.itemName;
+            itemSlots[selectedSlotIndex].enforce.text = selectedItemData.enforce == 0 ? null : "+" + selectedItemData.enforce.ToString();
             switch (selectedItemData.type)
             {
                 case ItemType.Weapon:
@@ -83,6 +102,21 @@ public class UIEquip : MonoBehaviour
         }
     }
 
+    public void EnforceBtn()
+    {
+        if (PlayerManager.Instance.Player.statHandler.jewel - selectedItemData.enforce > 0)
+        {
+            if (Random.Range(0, 100) < 100 - selectedItemData.enforce * 10)
+            {
+                selectedItemData.enforce++;
+                selectedItemData.value += selectedItemData.enforce;
+                PlayerManager.Instance.Player.statHandler.jewel -= selectedItemData.enforce;
+                itemSlots[selectedSlotIndex].ChangeEnfoce($"+{selectedItemData.enforce}");
+                itemValue.text = selectedItemData.value.ToString();
+            }
+        }
+    }
+
     public bool FindEmptySlot(int index)
     {
         if (inventory.itemSlots[index].itemData.id == 0)
@@ -95,12 +129,15 @@ public class UIEquip : MonoBehaviour
 
     private void Reset()
     {
+        itemSlots[selectedSlotIndex].enforce.text = null;
         itemName.text = null;
         itemValueText.text = null;
         itemValue.text = null;
+        itemSlots[selectedSlotIndex].enforce.enabled = false;
         itemName.enabled = false;
         itemValueText.enabled = false;
         itemValue.enabled = false;
         unEquipBtn.SetActive(false);
+        enfornceBtn.SetActive(false);
     }
 }

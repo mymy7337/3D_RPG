@@ -52,7 +52,7 @@ public class UIShop : MonoBehaviour
         itemDes.text = selectedItemData.description;
         priceText.enabled = true;
         price.enabled = true;
-        price.text = $"{selectedItemData.price} G";
+        price.text = $"{selectedItemData.priceGold} G";
         if(selectedItemData.type == ItemType.Expend)
         {
             itemCountText.enabled = true;

@@ -10,10 +10,10 @@ public class ItemInstance
     public string itemName;
     public string description;
     public float value;
-    public float price;
+    public float priceGold;
     public int count;
     public Sprite icon;
-    public bool Equip;
+    public int enforce;
 
     [Header("Type")]
     public ItemType type;
@@ -24,9 +24,10 @@ public class ItemInstance
         itemName = item.itemName;
         description = item.description;
         value = item.value;
-        price = item.price;
+        priceGold = item.priceGold;
         icon = item.icon;
         type = item.type;
+        enforce = item.enforce;
     }
 
     public ItemInstance(ItemDataSO data)
@@ -35,7 +36,7 @@ public class ItemInstance
         itemName = data.itemName;
         description = data.description;
         value = data.value;
-        price = data.price;
+        priceGold = data.priceGold;
         icon = data.icon;
         type = data.type;
     }

@@ -157,9 +157,10 @@ MonoBehaviour:
     price: 0
     count: 0
     icon: {fileID: 0}
-    Equip: 0
+    enforce: 0
     type: 0
   equip: {fileID: 7129423026157958904, guid: d68b0544e715bc64fa9e5557aee1b35c, type: 3}
+  enforce: {fileID: 9172500756499220534}
 --- !u!1 &3308697091219677830
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,8 +270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 50}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -60, y: 40}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8917425524263876770
 CanvasRenderer:
@@ -300,7 +301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ba00e8db177eb84090524d4e8423ba1, type: 2}
   m_sharedMaterial: {fileID: -5207222153073598878, guid: 9ba00e8db177eb84090524d4e8423ba1,

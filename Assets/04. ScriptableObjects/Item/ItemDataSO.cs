@@ -18,7 +18,7 @@ public class ItemDataSO : ScriptableObject
     public string itemName;
     public string description;
     public float value;
-    public float price;
+    public float priceGold;
     public Sprite icon;
 
     [Header("Type")]
