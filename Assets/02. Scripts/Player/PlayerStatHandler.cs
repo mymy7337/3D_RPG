@@ -52,6 +52,7 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
     public void TakeDamage(float amount)
     {
         hp -= amount;
+        Debug.Log($"플레이어{hp}");
     }
 
     public void GetExt(float amount) => exp += amount;

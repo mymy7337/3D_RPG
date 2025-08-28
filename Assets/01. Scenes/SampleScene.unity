@@ -3174,7 +3174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCollider: {fileID: 566802300}
-  data: {fileID: 11400000, guid: dc79883ec90162d44baad864e29ad73b, type: 2}
+  playerData: {fileID: 11400000, guid: dc79883ec90162d44baad864e29ad73b, type: 2}
+  enemyData: {fileID: 0}
 --- !u!136 &2009402309
 CapsuleCollider:
   m_ObjectHideFlags: 0

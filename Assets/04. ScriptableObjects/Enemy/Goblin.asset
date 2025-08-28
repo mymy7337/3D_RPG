@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxHP>k__BackingField: 100
   <Speed>k__BackingField: 3
-  <AttackDamage>k__BackingField: 0
-  <AttackDelay>k__BackingField: 0
+  <AttackDamage>k__BackingField: 10
+  <AttackDelay>k__BackingField: 1.5
+  <Exp>k__BackingField: 0
   <Gold>k__BackingField: 100
   <Jewel>k__BackingField: 10

@@ -6,7 +6,8 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private Collider myCollider;
 
-    public PlayerSO data;
+    public PlayerSO playerData;
+    public EnemySO enemyData;
 
     private List<Collider> alreadyCollider = new List<Collider>();
 
@@ -25,8 +26,10 @@ public class Weapon : MonoBehaviour
 
         if (other.TryGetComponent(out IDamagable damagable))
         {
-            damagable.TakeDamage(data.AttackDamage);
+            if(playerData != null)
+                damagable.TakeDamage(playerData.AttackDamage);
+            if (enemyData != null)
+                damagable.TakeDamage(enemyData.AttackDamage);
         }
-
     }
 }

@@ -38,8 +38,6 @@ public class EnemyStatHandler : MonoBehaviour, IDamagable
         {
             Die();
         }
-
-        Debug.Log(hp);
     }
 
     public void Die()

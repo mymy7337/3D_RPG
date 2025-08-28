@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 
     public EnemyStateMachine stateMachine;
 
+    [field: SerializeField] public Weapon Weapon {  get; private set; }
+
     private void Awake()
     {
         controller = GetComponent<EnemyController>();

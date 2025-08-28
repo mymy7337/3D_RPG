@@ -32,18 +32,21 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        distance = Vector3.Distance(chasingTarget.curTarget.position, transform.position);
-
-        if (agent.CalculatePath(chasingTarget.curTarget.position, path) && distance >= 1f)
+        if (chasingTarget.curTarget != null)
         {
-            stateMachine.ChangeState(stateMachine.RunState);
-            agent.SetDestination(chasingTarget.curTarget.position);
-        }
+            distance = Vector3.Distance(chasingTarget.curTarget.position, transform.position);
 
-        if (agent.remainingDistance < 0.5f && !isAttacking)
-        {
-            agent.SetDestination(transform.position);
-            StartCoroutine(Attack());
+            if (agent.CalculatePath(chasingTarget.curTarget.position, path) && distance >= 1f)
+            {
+                stateMachine.ChangeState(stateMachine.RunState);
+                agent.SetDestination(chasingTarget.curTarget.position);
+            }
+
+            if (agent.remainingDistance < 0.5f && !isAttacking)
+            {
+                agent.SetDestination(transform.position);
+                StartCoroutine(Attack());
+            }
         }
     }
 
@@ -55,8 +58,10 @@ public class EnemyController : MonoBehaviour
     private IEnumerator Attack()
     {
         isAttacking = true;
+        enemy.Weapon.enabled = true;
         stateMachine.ChangeState(stateMachine.AttackState);
         yield return new WaitForSeconds(enemy.statHandler.attackDelay);
         isAttacking = false;
+        enemy.Weapon.enabled = false;
     }
 }
