@@ -29,18 +29,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        distance = Vector3.Distance(chasingTarget.curTarget.position, transform.position);
-
-        if (agent.CalculatePath(chasingTarget.curTarget.position, path) && distance >= 1f)
+        if (chasingTarget.curTarget != null)
         {
-            stateMachine.ChangeState(stateMachine.RunState);
-            agent.SetDestination(chasingTarget.curTarget.position);
-        }
+            distance = Vector3.Distance(chasingTarget.curTarget.position, transform.position);
 
-        if(agent.remainingDistance < 0.1f && !isAttacking)
-        {
-            agent.SetDestination(transform.position);
-            StartCoroutine(Attack());
+            if (agent.CalculatePath(chasingTarget.curTarget.position, path) && distance >= 2f)
+            {
+                stateMachine.ChangeState(stateMachine.RunState);
+                agent.SetDestination(chasingTarget.curTarget.position);
+            }
+
+            if (agent.remainingDistance < 2f && !isAttacking)
+            {
+                agent.SetDestination(transform.position);
+                StartCoroutine(Attack());
+            }
         }
     }
 
@@ -53,7 +56,9 @@ public class PlayerController : MonoBehaviour
     {
         isAttacking = true;
         stateMachine.ChangeState(stateMachine.AttackState);
+        PlayerManager.Instance.Player.Weapon.enabled = true;
         yield return new WaitForSeconds(PlayerManager.Instance.Player.statHandler.attackDelay);
         isAttacking = false;
+        PlayerManager.Instance.Player.Weapon.enabled = false;
     }
 }

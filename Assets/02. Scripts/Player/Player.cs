@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     public PlayerStateMachine stateMachine;
 
+    [field: SerializeField] public Weapon Weapon { get; private set; }
+
     private void Awake()
     {
         PlayerManager.Instance.Player = this;
