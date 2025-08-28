@@ -12,6 +12,7 @@ public enum ItemType
 public class ItemDataSO : ScriptableObject
 {
     [Header("Info")]
+    public int id;
     public string itemName;
     public string description;
     public float value;

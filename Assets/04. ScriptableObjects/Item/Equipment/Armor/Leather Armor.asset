@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88165b05422ccf344a08fc231694f3ca, type: 3}
   m_Name: Leather Armor
   m_EditorClassIdentifier: 
+  id: 2
   itemName: "\uAC00\uC8FD \uAC11\uC637"
   description: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uAC11\uC637\uC785\uB2C8\uB2E4"
   value: 5
