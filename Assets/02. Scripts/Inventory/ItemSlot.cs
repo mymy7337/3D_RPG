@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    [SerializeField] private int slotIndex;
+    [SerializeField] protected int slotIndex;
     public Image icon;
     public ItemInstance itemData;
 
@@ -17,8 +17,8 @@ public class ItemSlot : MonoBehaviour
         icon.sprite = itemData.icon;
     }
 
-    public void Click()
+    public virtual void Click()
     {
-        inventory.SelectItem(slotIndex);
+        
     }
 }
