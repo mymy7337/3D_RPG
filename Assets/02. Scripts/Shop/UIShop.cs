@@ -15,6 +15,9 @@ public class UIShop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private TextMeshProUGUI price;
 
+    [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI gold;
+
     [SerializeField] private ShopSlot[] itemSlots;
 
     [SerializeField] private UIInventory inventory;
@@ -37,6 +40,7 @@ public class UIShop : MonoBehaviour
 
     public void SetSlot()
     {
+        gold.text = $"{PlayerManager.Instance.Player.statHandler.gold} G";
         for (int i = 0; i < itemSlots.Length && i< itemDatas.Length; i++)
         {
             itemSlots[i].Set(itemDatas[i]);
@@ -77,6 +81,8 @@ public class UIShop : MonoBehaviour
 
     public void Buy()
     {
+        PlayerManager.Instance.Player.statHandler.gold -= (int)selectedItemData.priceGold;
+        gold.text = $"{PlayerManager.Instance.Player.statHandler.gold} G";
         if (selectedItemData.type == ItemType.Expend)
         {
             foreach (var item in inventory.itemSlots)

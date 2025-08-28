@@ -1182,8 +1182,8 @@ MonoBehaviour:
   maxExp: 0
   exp: 0
   speed: 0
-  gold: 0
-  jewel: 0
+  gold: 999999
+  jewel: 99999
   attackDamage: 0
   attackDelay: 0
 --- !u!114 &861078639
