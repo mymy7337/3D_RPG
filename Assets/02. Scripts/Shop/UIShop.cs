@@ -83,6 +83,7 @@ public class UIShop : MonoBehaviour
     {
         PlayerManager.Instance.Player.statHandler.gold -= (int)selectedItemData.priceGold;
         gold.text = $"{PlayerManager.Instance.Player.statHandler.gold} G";
+        PlayerManager.Instance.Player.statHandler.SaveStat();
         if (selectedItemData.type == ItemType.Expend)
         {
             foreach (var item in inventory.itemSlots)
@@ -117,11 +118,6 @@ public class UIShop : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void Sell()
-    {
-
     }
 
     public bool FindEmptySlot(int index)

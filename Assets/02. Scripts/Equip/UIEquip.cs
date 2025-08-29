@@ -118,6 +118,7 @@ public class UIEquip : MonoBehaviour
                 selectedItemData.value += selectedItemData.enforce;
                 itemSlots[selectedSlotIndex].ChangeEnfoce($"+{selectedItemData.enforce}");
                 itemValue.text = selectedItemData.value.ToString();
+                PlayerManager.Instance.Player.statHandler.SaveStat();
             }
         }
     }

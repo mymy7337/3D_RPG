@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: dc79883ec90162d44baad864e29ad73b, type: 2}
   uiConditions: {fileID: 0}
-  level: 0
+  level: 1
   maxHp: 0
   maxMp: 0
   hp: 0

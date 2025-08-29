@@ -18,7 +18,11 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        PlayerManager.Instance.Player = this;
+        if(PlayerManager.Instance.Player == null)
+        {
+            PlayerManager.Instance.Player = this;
+        }
+            
         AnimationData.Initialize();
         controller = GetComponent<PlayerController>();
         statHandler = GetComponent<PlayerStatHandler>();

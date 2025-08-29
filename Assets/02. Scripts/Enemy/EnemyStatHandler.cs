@@ -48,5 +48,6 @@ public class EnemyStatHandler : MonoBehaviour, IDamagable
         PlayerManager.Instance.Player.statHandler.GetGold(data.Gold);
         PlayerManager.Instance.Player.statHandler.GetJewel(data.Jewel);
         PlayerManager.Instance.Player.statHandler.GetExt(data.Exp);
+        PlayerManager.Instance.Player.statHandler.SaveStat();
     }
 }
