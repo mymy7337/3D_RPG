@@ -10,7 +10,7 @@ public class PlayerManager : Singleton<PlayerManager>
         set { player = value; }
     }
 
-    protected override bool isDestroy => true;
+    protected override bool isDestroy => false;
 
     protected override void Awake()
     {
