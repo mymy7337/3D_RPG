@@ -34,6 +34,7 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
     [Header("AttackInfo")]
     public float attackDamage;
     public float attackDelay;
+    public float def;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
             maxExp = level * level * 50;
             attackDamage = data.AttackDamage;
             attackDelay = data.AttackDelay;
+            def = data.Def;
             SaveStat();
         }
         LoadStat();
@@ -103,6 +105,7 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
         playerStat.speed = speed;
         playerStat.attackDamage = attackDamage;
         playerStat.attackDelay = attackDelay;
+        playerStat.def = def;
 
         playerStat.gold = gold;
         playerStat.jewel = jewel;
@@ -122,6 +125,8 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
         speed = playerStat.speed;
         attackDamage= playerStat.attackDamage;
         attackDelay = playerStat.attackDelay;
+        def = playerStat.def;
+
         gold = playerStat.gold;
         jewel = playerStat.jewel;
     }
@@ -135,6 +140,7 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
         public float speed;
         public float attackDamage;
         public float attackDelay;
+        public float def;
 
         public int gold;
         public int jewel;

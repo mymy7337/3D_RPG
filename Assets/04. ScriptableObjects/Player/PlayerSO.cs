@@ -12,5 +12,6 @@ public class PlayerSO : ScriptableObject
     [field: Header("AttackInfo")]
     [field: SerializeField] public float AttackDamage { get; private set; }
     [field: SerializeField] public float AttackDelay { get; private set; }
+    [field: SerializeField] public float Def { get; private set; }
 
 }

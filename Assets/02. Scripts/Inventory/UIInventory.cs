@@ -94,6 +94,8 @@ public class UIInventory : MonoBehaviour
                 if (equip.itemSlots[0].itemData.id == 0)
                 {
                     equip.itemSlots[0].Set(selectedItemData);
+                    PlayerManager.Instance.Player.statHandler.def += selectedItemData.value;
+                    PlayerManager.Instance.Player.statHandler.SaveStat();
                     ClearSlot(selectedItemIndex);
                 }
                 break;
@@ -101,6 +103,8 @@ public class UIInventory : MonoBehaviour
                 if (equip.itemSlots[1].itemData.id == 0)
                 {
                     equip.itemSlots[1].Set(selectedItemData);
+                    PlayerManager.Instance.Player.statHandler.def += selectedItemData.value;
+                    PlayerManager.Instance.Player.statHandler.SaveStat();
                     ClearSlot(selectedItemIndex);
                 }
                 break;
@@ -108,13 +112,17 @@ public class UIInventory : MonoBehaviour
                 if (equip.itemSlots[2].itemData.id == 0)
                 {
                     equip.itemSlots[2].Set(selectedItemData);
-                ClearSlot(selectedItemIndex);
+                    PlayerManager.Instance.Player.statHandler.def += selectedItemData.value;
+                    PlayerManager.Instance.Player.statHandler.SaveStat();
+                    ClearSlot(selectedItemIndex);
                 }
                 break;
             case ItemType.Weapon:
                 if (equip.itemSlots[3].itemData.id == 0)
                 {
                     equip.itemSlots[3].Set(selectedItemData);
+                    PlayerManager.Instance.Player.statHandler.attackDamage += selectedItemData.value;
+                    PlayerManager.Instance.Player.statHandler.SaveStat();
                     ClearSlot(selectedItemIndex);
                 }
                 break;

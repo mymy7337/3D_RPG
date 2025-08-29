@@ -29,6 +29,7 @@ public class UIEquip : MonoBehaviour
 
     private void OnEnable()
     {
+        StatSet();
         jewel.text = PlayerManager.Instance.Player.statHandler.jewel.ToString();
         foreach (var slot in itemSlots)
         {
@@ -50,6 +51,14 @@ public class UIEquip : MonoBehaviour
         selectedItemData = null;
         Reset();
 
+    }
+
+    public void StatSet()
+    {
+        PlayerManager.Instance.Player.statHandler.LoadStat();
+        lv.text = PlayerManager.Instance.Player.statHandler.level.ToString("D2");
+        atk.text = PlayerManager.Instance.Player.statHandler.attackDamage.ToString();
+        def.text = PlayerManager.Instance.Player.statHandler.def.ToString();
     }
 
     public void SelectItem(int index)
@@ -94,6 +103,16 @@ public class UIEquip : MonoBehaviour
             if(FindEmptySlot(i))
             {
                 inventory.itemSlots[i].Set(selectedItemData);
+                if (selectedItemData.type == ItemType.Weapon)
+                {
+                    PlayerManager.Instance.Player.statHandler.attackDamage -= selectedItemData.value;
+                    PlayerManager.Instance.Player.statHandler.SaveStat();
+                }
+                else
+                {
+                    PlayerManager.Instance.Player.statHandler.def -= selectedItemData.value;
+                    PlayerManager.Instance.Player.statHandler.SaveStat();
+                }
                 itemSlots[selectedSlotIndex].itemData.id = 0;
                 itemSlots[selectedSlotIndex].itemData.itemName = null;
                 itemSlots[selectedSlotIndex].itemData.description = null;
@@ -118,7 +137,16 @@ public class UIEquip : MonoBehaviour
                 selectedItemData.value += selectedItemData.enforce;
                 itemSlots[selectedSlotIndex].ChangeEnfoce($"+{selectedItemData.enforce}");
                 itemValue.text = selectedItemData.value.ToString();
+
+                int enforceValue = (int)selectedItemData.value;
+
+                if(selectedItemData.type == ItemType.Weapon)
+                    PlayerManager.Instance.Player.statHandler.attackDamage = enforceValue + PlayerManager.Instance.Player.statHandler.data.AttackDamage;
+                else
+                    PlayerManager.Instance.Player.statHandler.def = enforceValue + PlayerManager.Instance.Player.statHandler.data.Def;
+
                 PlayerManager.Instance.Player.statHandler.SaveStat();
+                StatSet();
             }
         }
     }
@@ -145,5 +173,6 @@ public class UIEquip : MonoBehaviour
         itemValue.enabled = false;
         unEquipBtn.SetActive(false);
         enfornceBtn.SetActive(false);
+        StatSet();
     }
 }

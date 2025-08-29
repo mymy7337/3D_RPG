@@ -13,12 +13,8 @@ MonoBehaviour:
   m_Name: Knight
   m_EditorClassIdentifier: 
   <MaxHP>k__BackingField: 200
-  <HP>k__BackingField: 200
   <MaxMP>k__BackingField: 100
-  <MP>k__BackingField: 100
-  <Exp>k__BackingField: 0
   <Speed>k__BackingField: 5
-  <Gold>k__BackingField: 0
-  <Jewel>k__BackingField: 0
   <AttackDamage>k__BackingField: 10
   <AttackDelay>k__BackingField: 1.5
+  <Def>k__BackingField: 10
