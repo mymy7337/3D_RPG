@@ -18,4 +18,4 @@ MonoBehaviour:
   value: 15
   priceGold: 700
   icon: {fileID: 21300000, guid: cffd58c2cfa51f34889a9d5cb56716ee, type: 3}
-  type: 0
+  type: 2
