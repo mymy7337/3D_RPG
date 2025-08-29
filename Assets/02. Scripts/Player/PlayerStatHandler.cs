@@ -53,6 +53,8 @@ public class PlayerStatHandler : MonoBehaviour, IDamagable
             SaveStat();
         }
         LoadStat();
+        hp = maxHp;
+        mp = maxMp;
         uiConditions.HpChange(hp, maxHp);
         uiConditions.MpChange(mp, maxMp);
         uiConditions.ExpChange(exp, maxExp);

@@ -1271,6 +1271,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: dc79883ec90162d44baad864e29ad73b, type: 2}
   uiConditions: {fileID: 1914300368}
+  playerStat:
+    level: 0
+    maxHp: 0
+    maxMp: 0
+    speed: 0
+    attackDamage: 0
+    attackDelay: 0
+    def: 0
+    gold: 0
+    jewel: 0
   level: 0
   maxHp: 0
   maxMp: 0
@@ -1283,6 +1293,7 @@ MonoBehaviour:
   jewel: 0
   attackDamage: 0
   attackDelay: 0
+  def: 0
 --- !u!1 &708077551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,7 +1430,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
