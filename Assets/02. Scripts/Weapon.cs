@@ -27,9 +27,9 @@ public class Weapon : MonoBehaviour
         if (other.TryGetComponent(out IDamagable damagable))
         {
             if(playerData != null)
-                damagable.TakeDamage(playerData.AttackDamage);
+                damagable.TakeDamage(PlayerManager.Instance.Player.statHandler.attackDamage);
             if (enemyData != null)
-                damagable.TakeDamage(enemyData.AttackDamage);
+                damagable.TakeDamage(Mathf.Max((enemyData.AttackDamage - PlayerManager.Instance.Player.statHandler.def), 1));
         }
     }
 }
