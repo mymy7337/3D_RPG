@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyStatHandler : MonoBehaviour, IDamagable
 {
     public EnemySO data;
+    [SerializeField] Map map;
 
     [Header("Stats")]
     public float maxHp;
@@ -43,6 +44,7 @@ public class EnemyStatHandler : MonoBehaviour, IDamagable
     public void Die()
     {
         Destroy(gameObject);
+        map.enemies--;
         PlayerManager.Instance.Player.statHandler.GetGold(data.Gold);
         PlayerManager.Instance.Player.statHandler.GetJewel(data.Jewel);
         PlayerManager.Instance.Player.statHandler.GetExt(data.Exp);
