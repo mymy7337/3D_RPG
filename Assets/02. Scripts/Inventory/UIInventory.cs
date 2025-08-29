@@ -50,6 +50,8 @@ public class UIInventory : MonoBehaviour
         itemSlots[index].itemData.description = null;
         itemSlots[index].itemData.icon = null;
         itemSlots[index].icon.sprite = null;
+        itemSlots[index].itemData.enforce = 0;
+        itemSlots[index].enforce.enabled = false;
         SetDes(index);
     }
 
@@ -60,6 +62,8 @@ public class UIInventory : MonoBehaviour
 
         itemName.text = selectedItemData.itemName;
         itemDes.text = selectedItemData.description;
+        itemSlots[index].enforce.enabled = true;
+        itemSlots[index].enforce.text = selectedItemData.enforce == 0 ? "" : "+" + selectedItemData.enforce.ToString();
 
 
         if (selectedItemData.type == ItemType.Expend)
@@ -119,6 +123,8 @@ public class UIInventory : MonoBehaviour
 
     private void Reset()
     {
+        itemSlots[selectedItemIndex].enforce.text = null;
+        itemSlots[selectedItemIndex].enforce.enabled = false;
         useBtn.SetActive(false);
         equipBtn.SetActive(false);
         itemCountText.enabled = false;
